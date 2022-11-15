@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container">
+        <%= link_to root_path do %> 
+            <%= image_tag 'logo.png' , :class=>'navbar-brand'%>
+        <% end %>
+    
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+
+
+                <% if @current_user.present? %>
+        
+                
+                    <li class="nav-item active">
+                        <%= link_to 'Airplanes', airplanes_path ,:class=>"nav-link" %>
+
+                    </li>
+
+                    <li class="nav-item">
+                     <%= link_to 'Reservations',reservations_path,:class=>"nav-link" %>
+
+                    </li>
+                    <li class="nav-item">
+                     <%= link_to 'Flights', flights_path,:class=>"nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                    <%= link_to 'New Flight', new_flight_path,:class=>"nav-link" %>
+                    </li>
+
+                    <li class="nav-item">
+                             <%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete' ,:class=>"nav-link"  %>
+
+                    </li>
+                    
+                    <form action="", class="form-inline" >
+                        <input class="form-control mr-sm-2" type="search" placeholder="search flight" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                <% else %>
+
+                    <li class="nav-item">
+                        <%= link_to "Sign Up", new_user_path ,:class=>"nav-link" %>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <%= link_to "Login", login_path ,:class=>"nav-link" %>
+                    </li>
+
+                <% end %>
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
