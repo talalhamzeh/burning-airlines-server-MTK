@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :airplane_id %>
-    <%= form.number_field :airplane_id %>
+    <%= form.select(:airplane_id, Airplane.pluck(:name,:id))  %>
   </div>
 
   <div class="field">
